@@ -1,10 +1,85 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Aplicacion</title>
-    </head>
-    <body>
-        <h1>Pagina inicio</h1>
-        <p>Hola</p>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TORIKO BD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .titulo {
+            text-align: center;
+            margin-top: 15px;
+            font-family: 'Arial', sans-serif;
+            color: #0432A0; 
+
+        }
+        .subtitulo {
+            text-align: center;
+            margin-bottom: 25px;
+            font-family: 'Arial', sans-serif;
+            color: #042c4f; 
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 80px;
+            width: 140px;
+        }
+        a {
+            margin-top: 450px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo mt-5">BD Club de Futbol TORIKO</h1>
+        <h2 class="subtitulo">EMPLEADO</h2>
+        <img src="{{ url_for('static', filename='LOGO.jpg') }}" alt="logo"class ="logo">
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead class="table-ligh">
+                <tr>
+                    <th>N</th>
+                    <th>NIF</th>
+                    <th>FECHA</th>
+                    <th>TLF</th>
+                    <th>ESPECIALIDAD</th>
+                    <th>ESPECIALIDAD 2</th>
+                    <th>ALTURA</th>
+                    <th>PESO</th>
+                    <th>FECHA DE CONTRATO</th>
+                </tr>
+            </thead>
+            <tbody>
+            <!-- HACER UN FOR CON LOS DATOS DE LA BD 
+                 VARIABLE NUMERO IR INCREMENTANDO POR CADA FILA  Y PONERLA 
+                 ESPECIALIDAD = ENTRENADOR || JUGADOR  || ENTRENADOR/JUGADOR 
+                 ESPECIALIDAD 2 SI ES JUGADOR O ENTRENADOR/JUGADOR PUEDE SER PORTERO O DEFENSA O MC O PORTERO/MC/DF ETC
+                 SI ES JUGADOR PESO Y ALTURA 
+                 SI ES ENTRENADOR FECHA 
+                 SI ES ENTRENADOR/JUGADOR LAS DOS -->
+
+            </tbody>
+        </table>
+        
+        <div class="d-flex justify-content-center gap-2">
+            <a href="/insertar" class="btn btn-success">Insertar</a>
+            <a href="/modificar" class="btn btn-warning">Modificar</a>
+            <a href="/eliminar" class="btn btn-danger">Eliminar</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Todos los derechos reservados &copy; 2024</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
