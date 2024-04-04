@@ -8,6 +8,11 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/insertar")
+def insert():
+    return render_template("insert.html")
+
+
 
 if __name__ == "__main__":
     app.run()
