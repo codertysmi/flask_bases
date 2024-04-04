@@ -11,7 +11,6 @@
             margin-top: 15px;
             font-family: 'Arial', sans-serif;
             color: #0432A0; 
-
         }
         .subtitulo {
             text-align: center;
@@ -25,13 +24,24 @@
             right: 80px;
             width: 140px;
         }
-        a {
-            margin-top: 450px;
-        }
         .footer {
             text-align: center;
             margin-top: 50px;
             color: #777;
+        }
+        .menu-icon {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .navbar-nav .nav-item {
+                padding: 0.5rem 0;
+            }
         }
     </style>
 </head>
@@ -39,10 +49,32 @@
     <div class="container">
         <h1 class="titulo mt-5">BD Club de Futbol TORIKO</h1>
         <h2 class="subtitulo">EMPLEADO</h2>
-        <img src="{{ url_for('static', filename='LOGO.jpg') }}" alt="logo"class ="logo">
+        <img src="{{ url_for('static', filename='LOGO.jpg') }}" alt="logo" class="logo">
     </div>
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler menu-icon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="/insertar">Insertar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="/modificar">Modificar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="/eliminar">Eliminar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
+        <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead class="table-ligh">
                 <tr>
@@ -68,12 +100,7 @@
 
             </tbody>
         </table>
-        
-        <div class="d-flex justify-content-center gap-2">
-            <a href="/insertar" class="btn btn-success">Insertar</a>
-            <a href="/modificar" class="btn btn-warning">Modificar</a>
-            <a href="/eliminar" class="btn btn-danger">Eliminar</a>
-        </div>
+    </div>
     </div>
 
     <div class="footer">
