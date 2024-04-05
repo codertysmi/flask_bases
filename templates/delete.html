@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insertar Datos</title>
+    <title>Eliminar Datos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -24,7 +24,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="titulo mt-5">Añnadir Empleado del Club TORIKO</h1>
+        <h1 class="titulo mt-5">Eliminar Empleado del Club TORIKO</h1>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,19 +36,19 @@
                             <a class="nav-link" href="/">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/insertar">Insertar</a>
+                            <a class="nav-link"  href="/insertar">Insertar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/modificar">Modificar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/eliminar">Eliminar</a>
+                            <a class="nav-link active" aria-current="page" href="/eliminar">Eliminar</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <form action="/insertar" method="POST">
+        <form action="/eliminar" method="POST">
             <div class="mb-3">
                 <label for="nif" class="form-label">NIF:</label>
                 <input type="text" class="form-control" id="nif" name="nif">
@@ -60,36 +60,8 @@
             <div class="mb-3">
                 <label for="telefono" class="form-label">Teléfono:</label>
                 <input type="text" class="form-control" id="telefono" name="telefono">
-            </div>
-            <div class="mb-3">
-                <label for="especialidad" class="form-label">Especialidad:</label>
-                <select class="form-select" id="especialidad" name="especialidad">
-                    <option value="entrenador">Entrenador</option>
-                    <option value="jugador">Jugador</option>
-                    <option value="entrenador_jugador">Entrenador/Jugador</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="especialidad2" class="form-label">Especialidad 2 (si es jugador):</label>
-                <select class="form-select" id="especialidad2" name="especialidad2">
-                    <option value="portero">Portero</option>
-                    <option value="defensa">Defensa</option>
-                    <option value="mc">MC</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="altura" class="form-label">Altura (cm):</label>
-                <input type="number" class="form-control" id="altura" name="altura">
-            </div>
-            <div class="mb-3">
-                <label for="peso" class="form-label">Peso (kg):</label>
-                <input type="number" class="form-control" id="peso" name="peso">
-            </div>
-            <div class="mb-3">
-                <label for="fecha_contrato" class="form-label">Fecha de Contrato (si es entrenador):</label>
-                <input type="date" class="form-control" id="fecha_contrato" name="fecha_contrato">
-            </div>
-            <button type="submit" class="btn btn-primary">Insertar</button>
+
+            <button type="submit" class="btn btn-primary">Eliminar</button>
         </form>
     </div>
 
