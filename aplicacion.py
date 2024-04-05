@@ -13,6 +13,9 @@ def insert():
     return render_template("insert.html")
 
 
+@app.route("/eliminar")
+def delete():
+    return render_template("delete.html")
 
 if __name__ == "__main__":
     app.run()
