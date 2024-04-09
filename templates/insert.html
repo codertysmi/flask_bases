@@ -1,4 +1,4 @@
-ç<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -48,10 +48,14 @@
                 </div>
             </div>
         </nav>
-        <form action="/insertar" method="POST">
+        <form action="/insertar" method="POST" style="margin-top: 50px">
             <div class="mb-3">
                 <label for="nif" class="form-label">NIF:</label>
-                <input type="text" class="form-control" id="nif" name="nif">
+                <input required type="text" class="form-control" id="nif" name="nif">
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input required type="text" class="form-control" id="nombre" name="nombre">
             </div>
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha:</label>
@@ -62,19 +66,14 @@
                 <input type="text" class="form-control" id="telefono" name="telefono">
             </div>
             <div class="mb-3">
-                <label for="especialidad" class="form-label">Especialidad:</label>
-                <select class="form-select" id="especialidad" name="especialidad">
-                    <option value="entrenador">Entrenador</option>
-                    <option value="jugador">Jugador</option>
-                    <option value="entrenador_jugador">Entrenador/Jugador</option>
-                </select>
+                <label for="direccion" class="form-label">Direccion:</label>
+                <input type="text" class="form-control" id="direccion" name="direccion">
             </div>
             <div class="mb-3">
-                <label for="especialidad2" class="form-label">Especialidad 2 (si es jugador):</label>
-                <select class="form-select" id="especialidad2" name="especialidad2">
-                    <option value="portero">Portero</option>
-                    <option value="defensa">Defensa</option>
-                    <option value="mc">MC</option>
+                <label for="especialidad" class="form-label">Especialidad:</label>
+                <select required class="form-select" id="especialidad" name="especialidad">
+                    <option value="entrenador">Entrenador</option>
+                    <option value="jugador">Jugador</option>
                 </select>
             </div>
             <div class="mb-3">
