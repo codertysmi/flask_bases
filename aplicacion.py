@@ -103,6 +103,12 @@ def delete():
 
     return render_template("delete.html")
 
+
+@app.route("/modificar")
+def modificar():
+    empleados = Empleado.query.limit(100).all()
+    return render_template("modify.html")
+
 if __name__ == "__main__":
     db.create_all()
     app.run(debug=True)
