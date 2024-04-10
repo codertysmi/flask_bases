@@ -65,12 +65,12 @@
                 </div>
             </div>
         </nav>
-        <form action="/modify2" method="POST">
+        <form action="/modificar" method="POST">
             <div class="mb-3">
-                <label for="empleado" class="form-label">Seleccionar Empleado:</label>
-                <select class="form-select" id="empleado" name="empleado">
+                <label for="nif" class="form-label">Seleccionar Empleado:</label>
+                <select class="form-select" id="nif" name="nif">
                     {% for empleado in empleados %}
-                        <option value= >{{ empleado.nombre }} - {{ empleado.nif }}</option>
+                        <option value={{ empleado._nif }} >{{ empleado._nif }}</option>
                     {% endfor %}
                 </select>
             </div>

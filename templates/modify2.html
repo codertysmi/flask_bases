@@ -18,11 +18,11 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="titulo mt-5">Detalles y Modificación del Empleado</h1>
+        <h1 class="titulo mt-5">Modificar Empleado NIF: {{ empleado._nif }}</h1>
         <form action="/guardar_modificaciones" method="POST">
             <div class="mb-3">
                 <label for="nif" class="form-label">NIF:</label>
-                <input type="text" class="form-control" id="nif" name="nif" value="{{ empleado.nif }}" readonly>
+                <input type="text" class="form-control" id="nif" name="nif" value="{{ empleado._nif }}" readonly>
             </div>
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre:</label>
