@@ -20,6 +20,26 @@
         .nav-link:hover {
             color: #0056b3;
         }
+        .logo {
+            width: 140px;
+        }
+        .menu-icon {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .navbar-nav .nav-item {
+                padding: 0.5rem 0;
+            }
+        }
+        .nav-container {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
