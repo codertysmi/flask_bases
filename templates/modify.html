@@ -81,7 +81,7 @@
                 <label for="nif" class="form-label">Seleccionar Empleado:</label>
                 <select class="form-select" id="nif" name="nif">
                     {% for empleado in empleados %}
-                        <option value={{ empleado._nif }} >{{ empleado._nif }} {{ empleado.nombre }}</option>
+                         <option value="{{ empleado._nif }}">{{ "DNI: " ~ empleado._nif ~ " Nombre: " ~ empleado.nombre }}</option>
                     {% endfor %}
                 </select>
             </div>
