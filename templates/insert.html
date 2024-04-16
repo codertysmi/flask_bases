@@ -17,45 +17,66 @@
         .nav-link {
             color: #007bff;
         }
+	  .logo {
+            width: 140px;
+	}
         .nav-link:hover {
             color: #0056b3;
+        }
+        .menu-icon {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .navbar-nav .nav-item {
+                padding: 0.5rem 0;
+            }
+        }
+        .nav-container {
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="titulo mt-5">Añnadir Empleado del Club TORIKO</h1>
+        <div class="container" style="display: flex; align-items: center; justify-content: center;">
+            <img src="{{ url_for('static', filename='LOGO.jpg') }}" alt="logo" class="logo" style="margin-right: 10px;">
+            <div>
+                <h1 class="titulo mt-5" style="font-weight:800; font-size: 30px;">BD Club de Futbol TORIKO</h1>
+                <h2  style="font-size: 25px;">EMPLEADO</h2>
+                <h3 style="font-size: 25px;">Insertar Empleado</h3>
+            </div>
+        </div>        
+    <div style="margin-top: 50px;"> 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="container">
+                <button class="navbar-toggler menu-icon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Inicio</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto" style="padding: 0px">
+                        <li class="nav-item" style="margin-right: 20px;">
+                            <a type="button" class="btn btn-outline-primary" href="/insertar">Insertar</a>
+                        </li>
+                        <li class="nav-item" style="margin-right: 20px;">
+                            <a type="button" class="btn btn-outline-primary" href="/modificar">Modificar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/insertar">Insertar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/modificar">Modificar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/eliminar">Eliminar</a>
+                            <a type="button" class="btn btn-outline-primary" href="/eliminar">Eliminar</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <form action="/insertar" method="POST" style="margin-top: 50px">
+        <form action="/insertar" method="POST">
             <div class="mb-3">
                 <label for="nif" class="form-label">NIF:</label>
-                <input required type="text" class="form-control" id="nif" name="nif">
-            </div>
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre:</label>
-                <input required type="text" class="form-control" id="nombre" name="nombre">
+                <input type="text" class="form-control" id="nif" name="nif">
             </div>
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha:</label>
@@ -66,27 +87,20 @@
                 <input type="text" class="form-control" id="telefono" name="telefono">
             </div>
             <div class="mb-3">
-                <label for="direccion" class="form-label">Direccion:</label>
-                <input type="text" class="form-control" id="direccion" name="direccion">
-            </div>
-            <div class="mb-3">
                 <label for="especialidad" class="form-label">Especialidad:</label>
-                <select required class="form-select" id="especialidad" name="especialidad">
+                <select class="form-select" id="especialidad" name="especialidad">
                     <option value="entrenador">Entrenador</option>
                     <option value="jugador">Jugador</option>
+                    <option value="entrenador_jugador">Entrenador/Jugador</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="posicion" class="form-label">Posicion:</label>
-                <select required class="form-select" id="posicion" name="posicion">
-                    <option value="defensa">Defensa</option>
+                <label for="especialidad2" class="form-label">Especialidad 2 (si es jugador):</label>
+                <select class="form-select" id="especialidad2" name="especialidad2">
                     <option value="portero">Portero</option>
-                    <option value="delantero">Delantero</option>
+                    <option value="defensa">Defensa</option>
+                    <option value="mc">MC</option>
                 </select>
-            </div>
-            <div class="mb-3">
-                <label for="grado" class="form-label">Grado:</label>
-                <input type="number" class="form-control" id="grado" name="grado">
             </div>
             <div class="mb-3">
                 <label for="altura" class="form-label">Altura (cm):</label>
