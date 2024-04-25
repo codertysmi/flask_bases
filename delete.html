@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Datos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .titulo {
+            text-align: center;
+            margin-top: 15px;
+            color: #0432A0;
+        }
+        .nav-link {
+            color: #007bff;
+        }
+        .nav-link:hover {
+            color: #0056b3;
+        }
+        .logo {
+            width: 140px;
+        }
+        .menu-icon {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .navbar-nav .nav-item {
+                padding: 0.5rem 0;
+            }
+        }
+        .nav-container {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container" style="display: flex; align-items: center; justify-content: center;">
+            <img src="{{ url_for('static', filename='LOGO.jpg') }}" alt="logo" class="logo" style="margin-right: 10px;">
+            <div>
+                <h1 class="titulo mt-5" style="font-weight:800; font-size: 30px;">BD Club de Futbol TORIKO</h1>
+                <h2  style="font-size: 25px;">EMPLEADO</h2>
+                <h3 style="font-size: 25px;">Eliminar Empleado</h3>
+            </div>
+        </div>        
+     <div style="margin-top: 50px;"> 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <button class="navbar-toggler menu-icon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto" style="padding: 0px">
+                        <li class="nav-item" style="margin-right: 20px;">
+                            <a type="button" class="btn btn-outline-primary" href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item" style="margin-right: 20px;">
+                            <a type="button" class="btn btn-outline-primary" href="/insertar">Insertar</a>
+                        </li>
+                        <li class="nav-item" style="margin-right: 20px;">
+                            <a type="button" class="btn btn-outline-primary" href="/modificar">Modificar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a type="button" class="btn btn-outline-primary" href="/eliminar">Eliminar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <form action="/eliminar" method="POST" style="margin-top: 50px">
+            <div class="mb-3">
+                <label for="nif" class="form-label">NIF:</label>
+                <input type="text" class="form-control" id="nif" name="nif">
+            </div>
+            <button type="submit" class="btn btn-primary">Eliminar</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

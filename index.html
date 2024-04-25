@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TORIKO BD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .titulo {
+            text-align: center;
+            margin-top: 15px;
+            font-family: 'Arial', sans-serif;
+            color: #0432A0; 
+        }
+        .subtitulo {
+            text-align: center;
+            margin-bottom: 25px;
+            font-family: 'Arial', sans-serif;
+            color: #042c4f; 
+        }
+        .logo {
+            width: 140px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #777;
+        }
+        .menu-icon {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .navbar-nav .nav-item {
+                padding: 0.5rem 0;
+            }
+        }
+        .nav-container {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container" style="display: flex; align-items: center; justify-content: center;">
+            <img src="{{ url_for('static', filename='LOGO.jpg') }}" alt="logo" class="logo" style="margin-right: 10px;">
+            <div>
+                <h1 class="titulo mt-5" style="font-weight:800; font-size: 30px;">BD Club de Futbol TORIKO</h1>
+                <h2  style="font-size: 25px;">EMPLEADO</h2>
+            </div>
+        </div>        
+    <div style="margin-top: 50px;"> 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <button class="navbar-toggler menu-icon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto" style="padding: 0px">
+                        <li class="nav-item" style="margin-right: 20px;">
+                            <a type="button" class="btn btn-outline-primary" href="/insertar">Insertar</a>
+                        </li>
+                        <li class="nav-item" style="margin-right: 20px;">
+                            <a type="button" class="btn btn-outline-primary" href="/modificar">Modificar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a type="button" class="btn btn-outline-primary" href="/eliminar">Eliminar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <table style="width: 100%; margin-top: 50px;" class="table table-bordered table-striped table-responsive">
+            <thead class="table-light">
+                <tr>
+                    <th>N</th>
+                    <th>NIF</th>
+                    <th>FECHA</th>
+                    <th>TLF</th>
+                    <th>ESPECIALIDAD</th>
+                    <th>POSICION</th>
+                    <th>ALTURA</th>
+                    <th>PESO</th>
+                    <th>FECHA DE CONTRATO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- HACER UN FOR CON LOS DATOS DE LA BD 
+                        VARIABLE NUMERO IR INCREMENTANDO POR CADA FILA  Y PONERLA 
+                        ESPECIALIDAD = ENTRENADOR || JUGADOR  || ENTRENADOR/JUGADOR 
+                        ESPECIALIDAD 2 SI ES JUGADOR O ENTRENADOR/JUGADOR PUEDE SER PORTERO O DEFENSA O MC O PORTERO/MC/DF ETC
+                        SI ES JUGADOR PESO Y ALTURA 
+                        SI ES ENTRENADOR FECHA 
+                        SI ES ENTRENADOR/JUGADOR LAS DOS -->
+
+                {% block content %}
+                    {% for empleado in empleados %}
+                        <tr scope="row">
+                            <th>
+                                {{empleado.nombre}}
+                            </th>
+                            <td>
+                                {{empleado._nif}}
+                            </td>
+                            <td>
+                                {{empleado.fecha}}
+                            </td>
+                            <td>
+                                {{empleado.telefono}}
+                            </td>
+                            <td>
+                                {{empleado.tipo}}
+                            </td>
+                            <td>
+                                {{empleado.posicion}}
+                            </td>
+                            <td>
+                                {{empleado.altura}}
+                            </td>
+                            <td>
+                                {{empleado.peso}}
+                            </td>
+                            <td>
+                                {{empleado.fecha_inicio_entrenador}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endblock %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        <p>Todos los derechos reservados &copy; 2024</p>
+    </div>
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
