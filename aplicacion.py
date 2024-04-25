@@ -117,7 +117,7 @@ def insert():
         empleado_existe = Empleado.query.filter_by(_nif=nif).first() is not None
 
         if empleado_existe:
-            return "Ya existe un empleado con ese NIF", 400
+            return render_template("Error.html", error_message="Ya existe un empleado con ese NIF"),400 
 
         if especialidad == "jugador":
             match posicion:
@@ -137,7 +137,7 @@ def insert():
             actualizar_base_datos(empleado)
             return redirect(url_for("home"))
         else:
-            return "Especialidad no es correcta", 400
+             return render_template("Error.html", error_message="Especialidad no es correcta"),400 
 
     return render_template("insert.html")
 
@@ -153,7 +153,7 @@ def delete():
             db.session.commit()
             return redirect(url_for("home"))
         else:
-            return "No existe ningun empleado con ese NIF", 400
+            return render_template("Error.html", error_message="No existe ningun empleado con ese NIF"),400
 
     return render_template("delete.html")
 
