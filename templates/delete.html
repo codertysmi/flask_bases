@@ -40,6 +40,16 @@
         .nav-container {
             width: 100%;
         }
+        .form-container {
+            margin: auto; /* Centrar horizontalmente */
+            max-width: 600px; /* Ancho máximo del contenedor */
+            padding: 20px; /* Espacio interior del contenedor */
+            border: 1px solid #ccc; /* Borde para visualizar el contenedor */
+            border-radius: 10px; /* Bordes redondeados */
+        }
+        .radio{
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -49,11 +59,10 @@
             <div>
                 <h1 class="titulo mt-5" style="font-weight:800; font-size: 30px;">BD Club de Futbol TORIKO</h1>
                 <h2  style="font-size: 25px;">EMPLEADO</h2>
-                <h3 style="font-size: 25px;">Eliminar Empleado</h3>
             </div>
         </div>        
      <div style="margin-top: 50px;"> 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light radio">
             <div class="container">
                 <button class="navbar-toggler menu-icon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -76,13 +85,16 @@
                 </div>
             </div>
         </nav>
-        <form action="/eliminar" method="POST" style="margin-top: 50px">
-            <div class="mb-3">
-                <label for="nif" class="form-label">NIF:</label>
-                <input type="text" class="form-control" id="nif" name="nif">
-            </div>
-            <button type="submit" class="btn btn-primary">Eliminar</button>
-        </form>
+        <div class="form-container" style="margin-top: 50px">
+            <h3 style="font-size: 25px; font-weight: bold;" class="titulo">ELIMINAR EMPLEADO</h3>
+            <form action="/eliminar" method="POST">
+                <div class="mb-3">
+                    <label for="nif" class="form-label">NIF:</label>
+                    <input type="text" class="form-control" id="nif" name="nif">
+                </div>
+                <button type="submit" class="btn btn-primary">Eliminar</button>
+            </form>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

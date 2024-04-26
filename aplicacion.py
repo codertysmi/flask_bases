@@ -50,8 +50,8 @@ class Jugador(Empleado):
     _nif = db.Column(db.String(9), db.ForeignKey('empleado._nif'), primary_key=True)
     peso = db.Column(db.Integer)
     altura = db.Column(db.Integer)
-    posicion = db.Column(db.String(50), nullable=False)    
-
+    posicion = db.Column(db.String(50), nullable=False)
+    
     __mapper_args__ = {
         'polymorphic_identity': 'jugador',
     }
@@ -59,7 +59,7 @@ class Jugador(Empleado):
 class Portero(Jugador):
     __tablename__ = "portero"
     #preguntar si dos clave primaria compuesta es correcta en especializacion doble
-    _nif = db.Column(db.String(9), db.ForeignKey('empleado._nif'), db.ForeignKey('jugador._nif'),  primary_key=True)
+    _nif = db.Column(db.String(9), db.ForeignKey('empleado._nif'),  db.ForeignKey('jugador._nif'), primary_key=True)
     grado = db.Column(db.Integer)
 
     __mapper_args__ = {
@@ -91,9 +91,6 @@ def home():
     #query = (Empleado.query.paginate(page=start, per_page=size))
 
     empleados = Empleado.query.limit(100).all()
-    for empleado in empleados:
-        if empleado.tipo == "jugador":
-            print(empleado.posicion)
 
     #db.session.add(Jugador(_nif="12421", fecha="20/09/2092", nombre="asj", telefono="", direccion="", tipo="jugador", altura=170, peso=90))
     #db.session.commit()
@@ -113,7 +110,7 @@ def insert():
         peso = request.form.get("peso")
         fecha_contrato = request.form.get("fecha_contrato")
         posicion = request.form.get("posicion")
-        grado = request.form.get("grado")
+        grado = request.form.get("_grado")
         empleado_existe = Empleado.query.filter_by(_nif=nif).first() is not None
 
         if empleado_existe:
@@ -168,15 +165,40 @@ def modificar():
     empleados = Empleado.query.limit(100).all()
     return render_template("modify.html", empleados=empleados)
 
-@app.route("/cambiar")
+@app.route("/cambiar", methods=["POST", "GET"])
 def cambiar():
     if request.method == "POST":
-        empleado = Empleado.query.filter_by(_nif=nif).first()
         nif = request.form.get("nif")
         nombre = request.form.get("nombre")
-        empleado.modify(_nif=nif, nombre=nombre)
-        actualizar_base_datos(empleado)
-        return redirect(url_for("home"))
+        telefono = request.form.get("telefono")
+        direccion = request.form.get("direccion")
+        fecha = request.form.get("fecha")
+        especialidad = request.form.get("especialidad")
+        altura = request.form.get("altura")
+        peso = request.form.get("peso")
+        fecha_contrato = request.form.get("fecha_contrato")
+        posicion = request.form.get("posicion")
+        grado = request.form.get("grado")
+        empleado = Empleado.query.filter_by(_nif=nif).first()
+        print(empleado)
+
+        if empleado is not None:
+            empleado.nombre = nombre
+            empleado.telefono = telefono
+            empleado.direccion = direccion
+            empleado.fecha = fecha
+            empleado.especialidad = especialidad
+            empleado.altura = altura
+            empleado.peso = peso
+            empleado.fecha_contrato = fecha_contrato
+            empleado.posicion = posicion
+            empleado.grado = grado
+
+            actualizar_base_datos(empleado)
+            return redirect(url_for("home"))
+        else:
+            return render_template("Error.html", error_message="No existe ningun empleado con ese NIF"),400
+
 
 
 
